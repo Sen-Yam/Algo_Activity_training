@@ -31,11 +31,20 @@ function SQRT_PALINDROME(N) {
     }
 }
 
-//  11 140
+//  [4 , 140]
 for(var i=4 ; i<=140 ; i++) {
     if(PALINDROME(i) && SQRT_PALINDROME(i)) {
         console.log(i);
     }
+}
+
+// a given number  , is it a factorial value of another one ? 
+function FACT(n) {
+    let n = 1;
+	for(let i = 2; n < number; i++){
+		n *= i;
+	}
+	return n == number;
 }
 
 
