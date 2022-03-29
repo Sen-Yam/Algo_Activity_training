@@ -39,7 +39,7 @@ for(var i=4 ; i<=140 ; i++) {
 }
 
 // a given number  , is it a factorial value of another one ? 
-function FACT(n) {
+function FACT(number) {
     let n = 1;
 	for(let i = 2; n < number; i++){
 		n *= i;
