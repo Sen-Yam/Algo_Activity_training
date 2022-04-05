@@ -90,7 +90,7 @@ while(i<T.length) {
                D=j-i;
            }
         }
-        i=j;   //it's si omportant to do this isntruction to avoid the infinite loop !
+        i=j;   //REMARK : it's so important to do this isntruction to avoid the infinite loop !
     }
    
 }
