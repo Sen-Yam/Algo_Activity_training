@@ -61,35 +61,38 @@ var D=T.length-1;
 var x=1;
 var y=2;                        // x=1  j=position(x) ......parcours la fin du tab (trouver le y)
 var i=0;
-while(i<T.length-1) {
-    if(T[i]===x) {
-        var j=i+1;
-        while(j<T.length && T[j]!==y) {
+while(i<T.length) {
+    if(T[i]==x) {
+         j=i+1;
+        while(j<T.length && T[j]!=y) {
             j++;
-            if(T[j]===x) {
+            if(T[j]==x) {
                 i=j;
             }
         }
-        if(T[j]===y) {
+        if(j!=T.length) {
            if(j-i <D)  {
                D=j-i;
            }
         }
+        i=j;
     }
-    if(T[i]===y) {
-        var j=i+1;
-        while(j<T.length && T[j]!==x) {
+    if(T[i]==y) {
+         j=i+1;
+        while(j<T.length && T[j]!=x) {
             j++;
-            if(T[j]===y) {
+            if(T[j]==y) {
                 i=j;
             }
         }
-        if(T[j]===x) {
+        if(j!=T.length) {
            if(j-i <D)  {
                D=j-i;
            }
         }
+        i=j;   //it's si omportant to do this isntruction to avoid the infinite loop !
     }
+   
 }
 
 console.log(`La distance minimale est : ${D}`);
