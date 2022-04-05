@@ -1,5 +1,5 @@
 // super-palindrome 
-function PALINDROME (N) {
+/*function PALINDROME (N) {
     if(N < 10) {
         return true;
     }
@@ -48,8 +48,51 @@ function FACT(number) {
 }
 
 
+*/
 
 
+
+// calculer la distance minimale entre x et y , tel que x et y existent dans un tableau
+//  x=1  y=2
+
+var T=[1,0,0,0,2,0,0,2,0,1,0,2];
+var D=T.length-1; 
+ //distance
+var x=1;
+var y=2;                        // x=1  j=position(x) ......parcours la fin du tab (trouver le y)
+var i=0;
+while(i<T.length-1) {
+    if(T[i]===x) {
+        var j=i+1;
+        while(j<T.length && T[j]!==y) {
+            j++;
+            if(T[j]===x) {
+                i=j;
+            }
+        }
+        if(T[j]===y) {
+           if(j-i <D)  {
+               D=j-i;
+           }
+        }
+    }
+    if(T[i]===y) {
+        var j=i+1;
+        while(j<T.length && T[j]!==x) {
+            j++;
+            if(T[j]===y) {
+                i=j;
+            }
+        }
+        if(T[j]===x) {
+           if(j-i <D)  {
+               D=j-i;
+           }
+        }
+    }
+}
+
+console.log(`La distance minimale est : ${D}`);
 
 
 
