@@ -55,7 +55,7 @@ function FACT(number) {
 // calculer la distance minimale entre x et y , tel que x et y existent dans un tableau
 //  x=1  y=2
 
-var T=[1,0,0,0,2,0,0,2,0,1,0,2];
+/* var T=[1,0,0,0,2,0,0,2,0,1,0,2];
 var D=T.length-1; 
  //distance
 var x=1;
@@ -97,6 +97,70 @@ while(i<T.length) {
 
 console.log(`La distance minimale est : ${D}`);
 
+ */
+
+// inverser la plus longue sequence croissante dans un tableau non triee 
+var deb,fin;
+var Taille=0;
+var i=0;
+var T=[1,2,3,2,1,2,3,4,5,6,0,-1,-2,1,2] ;
+var sizeSeq=0;
+while(i< T.length) {
+    while(i<T.length && T[i] < T[i+1] ) {
+        i++;
+        sizeSeq++;
+       
+    }
+    if(i < T.length) {
+        if(sizeSeq ==0) {
+            i++;
+
+        }
+        else {
+            if(sizeSeq > Taille) {
+                Taille = sizeSeq;
+                fin=i;
+                deb =fin - sizeSeq ; 
+            }
+            i++;
+            sizeSeq=0;
+        }
+    }
+}
+// pernuter les elements de la sequence croissante d'indices deb et fin 
+// deb =8    fin=14
+console.log(deb)
+console.log(fin)
+while (deb < fin) {
+    var X=T[deb];
+    T[deb]=T[fin];
+    T[fin]=X;
+    deb++;
+    fin--;
+
+}
+console.log(T);
+
+
+
+
+// 6 2 3 4 5 6  apres la permutation : 6 5 4 3 2 1
+
+
+/* apres la boucle : sizeSeq=0  =>   debut de la sequence croissante ou une sequence decroissante 
+Sinon =>  la fin de la sequence croissante : comparer la taille + sauvegarder le debut et la fin de
+ la sequence croissante
+*/
+
+/* 
+[1,2,3,2,1,2,3,4,5,6,0,-1,-2,1,2]  => [1,2,3,2,6,5,4,3,2,1,0,-1,-2,1,2]
+deb =4
+fin =9
+sizeSeq = 6
+
+*/
+
+  
 
 
 
