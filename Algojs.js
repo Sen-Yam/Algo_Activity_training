@@ -100,7 +100,7 @@ console.log(`La distance minimale est : ${D}`);
  */
 
 // inverser la plus longue sequence croissante dans un tableau non triee 
-var deb,fin;
+/* var deb,fin;
 var Taille=0;
 var i=0;
 var T=[1,2,3,2,1,2,3,4,5,6,0,-1,-2,1,2] ;
@@ -150,17 +150,60 @@ console.log(T);
 /* apres la boucle : sizeSeq=0  =>   debut de la sequence croissante ou une sequence decroissante 
 Sinon =>  la fin de la sequence croissante : comparer la taille + sauvegarder le debut et la fin de
  la sequence croissante
-*/
 
-/* 
+
+ 
 [1,2,3,2,1,2,3,4,5,6,0,-1,-2,1,2]  => [1,2,3,2,6,5,4,3,2,1,0,-1,-2,1,2]
 deb =4
 fin =9
 sizeSeq = 6
 
+ */
+/* 
+function Matrice(N) {
+    for(var i=0 ; i<N  ; i++) {
+        for(var j=0 ; j<N ; j++) {
+            M[i][j]=0;
+        }
+    }
+}
+
 */
+var N=5; // size de la matrice M
+var M=[ [0,0,0,0,0],   
+        [0,0,0,0,0],
+        [0,0,0,0,0],
+        [0,0,0,0,0],
+        [0,0,0,0,0]]
 
-  
+// remplir la diaginale M[i][i]=1
+for(var i=0 ; i<N ; i++) {
+    M[i][i]=1;
+    M[i][0]=1;   // remplir la 1ere colonne de la matrice par 1
+}
+
+// remplir les autres elements 
+for(var i=2 ; i < N ; i++) {
+    for (j=1 ; j<N ; j++) {
+        M[i][j]=M[i-1][j-1] + M[i-1][j] ;
+    }
+}
+// traitement  sur les arrays : M[i]
+for( var i=0 ; i<N ; i++) {
+    var X=N-i-1;
+    while(X > 0) {
+        M[i].pop();
+        X--;
+    }
+    console.log(M[i]);
+
+}
+
+
+// i=0  ; X=5-0-1 =4  3   2  1  0
+// i=1 X=3    2  1  0
 
 
 
+
+ 
