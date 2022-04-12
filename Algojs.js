@@ -159,6 +159,71 @@ fin =9
 sizeSeq = 6
 
  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+// SESSION 3 :
+
+// Algo arrays : function coffee(bills) {
+
+	function coffee(bills) {
+        let reg = {
+          fifty: 0,
+          hundred: 0,
+          two_hundred: 0,
+        };
+      
+        for (let i = 0; i < bills.length; i++) {
+          if (bills[i] === 50) {
+            reg.fifty++;
+          }
+      
+          if (bills[i] > 50) {
+            const dueBack = bills[i] - 50;
+                  
+            if (dueBack === 150) {
+              if (reg.fifty < 1 || reg.hundred < 1) {
+                return false;
+              }
+              reg.fifty--;
+              reg.hundred--;
+              reg[bills[i]]++;
+            }
+      
+            if (dueBack === 50) {
+              if (reg.fifty < 1) {
+                return false;
+              }
+              reg.fifty--;
+              reg[bills[i]]++;
+            }
+          }
+        }
+      
+        return true;
+      }
+    console.log(coffee([50, 50, 100, 100, 200]));
+
+
+
+
+
+
+
+// Algo matrices (Pascal Triangle)
+
+
+
 /* 
 function Matrice(N) {
     for(var i=0 ; i<N  ; i++) {
@@ -200,8 +265,6 @@ for( var i=0 ; i<N ; i++) {
 }
 
 
-// i=0  ; X=5-0-1 =4  3   2  1  0
-// i=1 X=3    2  1  0
 
 
 
