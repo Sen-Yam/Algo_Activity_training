@@ -172,7 +172,7 @@ sizeSeq = 6
 
 
 
-// SESSION 3 :
+/* // SESSION 3 :
 
 // Algo arrays : function coffee(bills) {
 
@@ -218,7 +218,7 @@ sizeSeq = 6
 
 
 
-
+ */
 
 // Algo matrices (Pascal Triangle)
 
@@ -234,7 +234,7 @@ function Matrice(N) {
 }
 
 */
-var N=5; // size de la matrice M
+/* var N=5; // size de la matrice M
 var M=[ [0,0,0,0,0],   
         [0,0,0,0,0],
         [0,0,0,0,0],
@@ -255,18 +255,130 @@ for(var i=2 ; i < N ; i++) {
 }
 // traitement  sur les arrays : M[i]
 for( var i=0 ; i<N ; i++) {
-    var X=N-i-1;
+   
+     var X=N-i-1;
     while(X > 0) {
         M[i].pop();
         X--;
-    }
+    } 
     console.log(M[i]);
 
 }
 
+ */
+
+// Exo 1 :
+ var M=[
+        [1,2,3,4] , 
+        [1,2,3,4],
+        [1,2,3,4],      // T[1,1,2,1,2,3,1,2,3,4]
+        [1,2,3,4]
+    ]
+var T=[];
+var i=0; // indice de lignes
+var j=0;  // indice de colonnes
+while(i < M.length) {
+    var K=i;  // lignes
+    var L=j; // colonnes
+    while(K >=0) {
+        T.push(M[K][L]);
+        K--;
+        L++;
+    }
+    i++;
+
+}
+console.log(T);
+
+
+
+
+/* deroulement : 
+Au debut : i=0 ; j=0 donc K=0 ; L=0;
+T.push(M[0][0]);    K-- K=-1 ; L++ ; L=1 
+i=1 ; +
+K=1 ; L=0; T.push(M[1][0]) 
+K--  K=0 ; L++  L=1 
+T.push(M[0][1])
 
 
 
 
 
- 
+lorsque i=2 et le j=0 :
+K=2   L=0
+T.push(M[2][0])
+K--;   K=1
+L++ ;  L=1
+K-- ; K=0
+L++ ; L=2
+T.push(M[0][2])
+K-- K=-1   j'arrete le traitement de la 2eme boucle
+
+
+
+
+
+
+ */
+// Exo 2 :
+ var M=[
+    [1,2,3,4] ,   // [4,1,2,3]
+    [5,6,7,8],  //[4,1,2,3]
+    [9,10,11,12],    // [4,1,2,3] 
+    [1,2,3,4]  // [4,1,2,3]
+]
+// 
+var i=0;
+while(i < M.length) {
+    var j=M.length-1;  // manipuler les colonnes
+    var X=M[i][j];
+    while(j > 0) {
+        // rotation :
+        M[i][j]=M[i][j-1];
+        j--;
+    }
+    M[i][j]=X;
+    i++;
+
+}
+console.log(M);
+
+/*
+apres la rotation : 
+M=[
+    [4,1,2,3] , 
+    [4,1,2,3],
+    [4,1,2,3],      
+    [4,1,2,3]
+]
+deroulement :
+i=0 : [1,2,3,4]  
+X=4  j=3;   et on decremente le j   // [4,1,2,3]
+T[i][0]=X=4
+
+
+  */
+// Exo 3 :
+var M=[
+    [1,2,3,4] , // i=0 ; j=N-1   N=M;length
+    [1,2,3,4],  // i=1 ; j=N-2     // j=N-i-1   
+    [1,6,3,4],     // i=2 ; j=N-3; 
+    [1,2,3,4]       // i=3 ; j=N-4;
+]
+var N= M.length;
+var Max= M[0][N-1];
+var Imax= 0 ;
+var Jmax = N-1;
+var i=0;
+while(i < N) {
+    if(Max < M[i][N-i-1 ]) {
+        Max=M[i][N-i-1 ];
+        Imax = i;
+        Jmax=N-i-1 ;
+    }
+    i++;
+}   // 6   i=2   j=1
+console.log(`la valeur maximale est ${Max} de la position : (${Imax} , ${Jmax})`);
+
+
