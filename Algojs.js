@@ -268,7 +268,7 @@ for( var i=0 ; i<N ; i++) {
  */
 
 // Exo 1 :
- var M=[
+ /* var M=[
         [1,2,3,4] , 
         [1,2,3,4],
         [1,2,3,4],      // T[1,1,2,1,2,3,1,2,3,4]
@@ -288,7 +288,7 @@ while(i < M.length) {
     i++;
 
 }
-console.log(T);
+console.log(T); */
 
 
 
@@ -322,7 +322,7 @@ K-- K=-1   j'arrete le traitement de la 2eme boucle
 
  */
 // Exo 2 :
- var M=[
+ /* var M=[
     [1,2,3,4] ,   // [4,1,2,3]
     [5,6,7,8],  //[4,1,2,3]
     [9,10,11,12],    // [4,1,2,3] 
@@ -342,7 +342,7 @@ while(i < M.length) {
     i++;
 
 }
-console.log(M);
+console.log(M); */
 
 /*
 apres la rotation : 
@@ -360,7 +360,7 @@ T[i][0]=X=4
 
   */
 // Exo 3 :
-var M=[
+/* var M=[
     [1,2,3,4] , // i=0 ; j=N-1   N=M;length
     [1,2,3,4],  // i=1 ; j=N-2     // j=N-i-1   
     [1,6,3,4],     // i=2 ; j=N-3; 
@@ -381,4 +381,57 @@ while(i < N) {
 }   // 6   i=2   j=1
 console.log(`la valeur maximale est ${Max} de la position : (${Imax} , ${Jmax})`);
 
+ */
 
+// Matrix 5*5  : 
+
+var M=[ [1,  2,3,  4,5],
+        [6,  7,8,  9,10],
+        [11,12,13,14,15],
+        [16,17,18,19,20],    // 1 2 3 4 5 10 15 20 25 24 23 22 21 16 11 6 7 8 9 14 19 18 17 12 13
+        [21,22,23,24,25]];
+
+
+// Displaying the matrix in the spiral order : 
+
+
+
+// The code :
+var Left= 0;
+    Right=M.length-1 ;
+    Top= 0;
+    Bottom= M.length-1;
+while(Left != Right && Top != Bottom)  {
+     // boucle pour afficher les elements de gauche a droite
+    // i= Left   j il demarre du left jusqu'a Right
+
+    for(var j=Left ; j<Right ; j++)   {
+        console.log(M[Left][j])
+    }
+    // boucle pour affciher les elements from top to bottom
+    // le nombre des lignes change , le nombre des colonnes est fix
+    // j= Right    i=Top+1    le i s'incremente
+    for(var i=Top ; i<Bottom ; i++) {
+        console.log(M[i][j]);
+    }
+    // Boucle pour afficher les elements from Right to Left
+    // le nombre de colonnes change  ,  le nombre de lignes est fix
+    // i= Bottom    ; j=Right  a Left  le j se decremente
+    for(var j=Right ; j>Left ; j-- ) {
+        console.log(M[i][j]);
+    }
+    //  Boucle pour afficher les elements from bottom to Top
+    //   le nombre des lignes change , le nombre des colonnes est fix
+    // i=Bottom   a Top+1             j=Left
+    for(var i=Bottom ; i>Top ; i--) {
+        console.log(M[i][j]);
+    }
+    Left++;
+    Right--;
+    Top++;
+    Bottom--;
+
+}
+
+console.log(M[Left][Left]);
+   
